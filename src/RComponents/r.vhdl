@@ -9,13 +9,12 @@ entity r is
 end r;
 
 architecture Behavioral of r is
-begin
-    component s_box
+    component full_s_box
         port (
             s_box_x : in bit_vector(23 downto 0);
             s_box_y : out bit_vector(23 downto 0)
         );
-    end component s_box;
+    end component full_s_box;
     component pi_1
         port (
             pi_1_x : in bit_vector(23 downto 0);
@@ -35,10 +34,9 @@ begin
         );
     end component pi_2;
 
-    r0 : s_box port map (x, y);
-    r1 : pi_1 port map (y, y);
-    r2 : theta_d port map (y, y);
-    r3 : pi_2 port map (y, y);
-
-    end component s_box;
+begin
+    r0 : full_s_box port map(x, y);
+    r1 : pi_1 port map(y, y);
+    r2 : theta_d port map(y, y);
+    r3 : pi_2 port map(y, y);
 end Behavioral;
