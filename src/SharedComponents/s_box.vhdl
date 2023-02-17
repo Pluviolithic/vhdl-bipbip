@@ -4,11 +4,13 @@ use IEEE.numeric_bit.all;
 entity s_box is
     port (
         x : in bit_vector(5 downto 0);
-        y : out bit_vector(5 downto 0)
+        y_out : out bit_vector(5 downto 0)
     );
 end s_box;
 
+-- change this to operate from memory
 architecture lut of s_box is
+    signal y : bit_vector(5 downto 0);
 begin
     process (x) is
     begin
@@ -79,4 +81,5 @@ begin
             when "111111" => y <= "100010";
         end case;
     end process;
+    y_out <= y;
 end lut;

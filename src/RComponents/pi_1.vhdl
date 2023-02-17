@@ -4,11 +4,12 @@ use IEEE.numeric_bit.all;
 entity pi_1 is
     port (
         x : in bit_vector(23 downto 0);
-        y : out bit_vector(23 downto 0)
+        y_out : out bit_vector(23 downto 0)
     );
 end pi_1;
 
 architecture Behavioral of pi_1 is
+    signal y : bit_vector(23 downto 0);
 begin
     y(0)  <= x(1);
     y(1)  <= x(7);
@@ -34,4 +35,5 @@ begin
     y(21) <= x(10);
     y(22) <= x(11);
     y(23) <= x(5);
+    y_out <= y;
 end Behavioral;

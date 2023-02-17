@@ -4,12 +4,14 @@ use IEEE.numeric_bit.all;
 entity chi is
     port (
         x : in bit_vector(52 downto 0);
-        y : out bit_vector(52 downto 0)
+        y_out : out bit_vector(52 downto 0)
     );
 end chi;
 
 architecture Behavioral of chi is
+    signal y : bit_vector(52 downto 0);
 begin
+    -- simply do not x(i) instead
     y(0) <= x(0) xor ((x(1) xor '1') and x(2));
     y(1) <= x(1) xor ((x(2) xor '1') and x(3));
     y(2) <= x(2) xor ((x(3) xor '1') and x(4));
@@ -61,6 +63,7 @@ begin
     y(48) <= x(48) xor ((x(49) xor '1') and x(50));
     y(49) <= x(49) xor ((x(50) xor '1') and x(51));
     y(50) <= x(50) xor ((x(51) xor '1') and x(52));
-    y(51) <= x(51) xor ((x(52) xor '1') and x(53));
-    y(52) <= x(52) xor ((x(53) xor '1') and x(0));
+    y(51) <= x(51) xor ((x(52) xor '1') and x(0));
+    y(52) <= x(52) xor ((x(0) xor '1') and x(1));
+    y_out <= y;
 end Behavioral;

@@ -4,11 +4,12 @@ use IEEE.numeric_bit.all;
 entity theta_prime is
     port (
         x : in bit_vector(52 downto 0);
-        y : out bit_vector(52 downto 0)
+        y_out : out bit_vector(52 downto 0)
     );
 end theta_prime;
 
 architecture Behavioral of theta_prime is
+    signal y : bit_vector(52 downto 0);
 begin
     y(0) <= x(0) xor x(1);
     y(1) <= x(1) xor x(2);
@@ -63,4 +64,5 @@ begin
     y(50) <= x(50) xor x(51);
     y(51) <= x(51) xor x(52);
     y(52) <= x(52);
+    y_out <= y;
 end Behavioral;

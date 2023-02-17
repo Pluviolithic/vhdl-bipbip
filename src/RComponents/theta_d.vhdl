@@ -4,11 +4,12 @@ use IEEE.numeric_bit.all;
 entity theta_d is
     port (
         x : in bit_vector(23 downto 0);
-        y : out bit_vector(23 downto 0)
+        y_out : out bit_vector(23 downto 0)
     );
 end theta_d;
 
 architecture Behavioral of theta_d is
+    signal y : bit_vector(23 downto 0);
 begin
     y(0) <= x(0) xor x(2) xor x(12);
     y(1) <= x(1) xor x(3) xor x(13);
@@ -34,4 +35,5 @@ begin
     y(21) <= x(21) xor x(23) xor x(9);
     y(22) <= x(22) xor x(0) xor x(10);
     y(23) <= x(23) xor x(1) xor x(11);
+    y_out <= y;
 end Behavioral;
