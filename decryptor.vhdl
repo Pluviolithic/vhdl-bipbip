@@ -143,7 +143,7 @@ begin
     decryptor3 : r_prime port map(r_value0 xor data_round_key0, r_value1);
 
     decryptor4 : e_1 port map(tweak_value0, data_round_key1);
-    decryptor5 : r_prime port map(r_value2 xor data_round_key1, r_value1);
+    decryptor5 : r_prime port map(r_value1 xor data_round_key1, r_value2);
 
     decryptor6 : g port map(tweak_value0 xor trk2, tweak_value1);
     decryptor7 : e_0 port map(tweak_value1, data_round_key2);
