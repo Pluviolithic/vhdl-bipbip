@@ -31,43 +31,43 @@ architecture Behavioral of decryptor is
     component chi is
         port (
             x : in bit_vector(52 downto 0);
-            y_out : in bit_vector(52 downto 0)
+            y : in bit_vector(52 downto 0)
         );
     end component;
     component r_prime is
         port (
             x : in bit_vector(23 downto 0);
-            y_out : in bit_vector(23 downto 0)
+            y : in bit_vector(23 downto 0)
         );
     end component;
     component e_0 is
         port (
             x : in bit_vector(52 downto 0);
-            y_out : in bit_vector(23 downto 0)
+            y : in bit_vector(23 downto 0)
         );
     end component;
     component e_1 is
         port (
             x : in bit_vector(52 downto 0);
-            y_out : in bit_vector(23 downto 0)
+            y : in bit_vector(23 downto 0)
         );
     end component;
     component g is
         port (
             x : in bit_vector(52 downto 0);
-            y_out : in bit_vector(52 downto 0)
+            y : in bit_vector(52 downto 0)
         );
     end component;
     component r is
         port (
             x : in bit_vector(23 downto 0);
-            y_out : in bit_vector(23 downto 0)
+            y : in bit_vector(23 downto 0)
         );
     end component;
     component g_prime is
         port (
             x : in bit_vector(52 downto 0);
-            y_out : in bit_vector(52 downto 0)
+            y : in bit_vector(52 downto 0)
         );
     end component;
 
