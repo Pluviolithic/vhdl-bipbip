@@ -3,8 +3,8 @@ use IEEE.numeric_bit.all;
 
 entity s_box is
     port (
-        x : in bit_vector(5 downto 0);
-        y : out bit_vector(5 downto 0)
+        s_box_x : in bit_vector(5 downto 0);
+        s_box_y : out bit_vector(5 downto 0)
     );
 end s_box;
 
@@ -12,9 +12,9 @@ end s_box;
 architecture lut of s_box is
     signal lut_out : bit_vector(5 downto 0);
 begin
-    process (x) is
+    process (s_box_x) is
     begin
-        case x is
+        case s_box_x is
             when "000000" => lut_out <= "000000";
             when "000001" => lut_out <= "000001";
             when "000010" => lut_out <= "000010";
@@ -81,5 +81,5 @@ begin
             when "111111" => lut_out <= "100010";
         end case;
     end process;
-    y <= lut_out;
+    s_box_y <= lut_out;
 end lut;
