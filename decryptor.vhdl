@@ -1,73 +1,73 @@
 library IEEE;
-use IEEE.numeric_bit.all;
+use IEEE.std_logic_1164.all;
 
 entity decryptor is
     port (
-        key : in bit_vector(255 downto 0);
-        encrypted_address : in bit_vector(63 downto 0);
-        decrypted_address : out bit_vector(63 downto 0)
+        key : in std_logic_vector(255 downto 0);
+        encrypted_address : in std_logic_vector(63 downto 0);
+        decrypted_address : out std_logic_vector(63 downto 0)
     );
 end decryptor;
 
 architecture Behavioral of decryptor is
-    signal k0 : bit_vector(23 downto 0);
+    signal k0 : std_logic_vector(23 downto 0);
 
-    signal trk1 : bit_vector(52 downto 0);
-    signal trk2 : bit_vector(52 downto 0);
-    signal trk3 : bit_vector(52 downto 0);
-    signal trk4 : bit_vector(52 downto 0);
-    signal trk5 : bit_vector(52 downto 0);
-    signal trk6 : bit_vector(52 downto 0);
+    signal trk1 : std_logic_vector(52 downto 0);
+    signal trk2 : std_logic_vector(52 downto 0);
+    signal trk3 : std_logic_vector(52 downto 0);
+    signal trk4 : std_logic_vector(52 downto 0);
+    signal trk5 : std_logic_vector(52 downto 0);
+    signal trk6 : std_logic_vector(52 downto 0);
 
-    signal tweak : bit_vector(39 downto 0);
-    signal tweak_star : bit_vector(52 downto 0);
-    signal tweak_value : bit_vector(52 downto 0);
+    signal tweak : std_logic_vector(39 downto 0);
+    signal tweak_star : std_logic_vector(52 downto 0);
+    signal tweak_value : std_logic_vector(52 downto 0);
 
-    signal data_round_key : bit_vector(23 downto 0);
-    signal r_value : bit_vector(23 downto 0);
+    signal data_round_key : std_logic_vector(23 downto 0);
+    signal r_value : std_logic_vector(23 downto 0);
 
-    signal ciphertext : bit_vector(23 downto 0);
+    signal ciphertext : std_logic_vector(23 downto 0);
 
     component chi is
         port (
-            chi_x : in bit_vector(52 downto 0);
-            chi_y : in bit_vector(52 downto 0)
+            chi_x : in std_logic_vector(52 downto 0);
+            chi_y : out std_logic_vector(52 downto 0)
         );
     end component;
     component r_prime is
         port (
-            r_prime_x : in bit_vector(23 downto 0);
-            r_prime_y : in bit_vector(23 downto 0)
+            r_prime_x : in std_logic_vector(23 downto 0);
+            r_prime_y : out std_logic_vector(23 downto 0)
         );
     end component;
     component e_0 is
         port (
-            e_0_x : in bit_vector(52 downto 0);
-            e_0_y : in bit_vector(23 downto 0)
+            e_0_x : in std_logic_vector(52 downto 0);
+            e_0_y : out std_logic_vector(23 downto 0)
         );
     end component;
     component e_1 is
         port (
-            e_1_x : in bit_vector(52 downto 0);
-            e_1_y : in bit_vector(23 downto 0)
+            e_1_x : in std_logic_vector(52 downto 0);
+            e_1_y : out std_logic_vector(23 downto 0)
         );
     end component;
     component g is
         port (
-            g_x : in bit_vector(52 downto 0);
-            g_y : in bit_vector(52 downto 0)
+            g_x : in std_logic_vector(52 downto 0);
+            g_y : out std_logic_vector(52 downto 0)
         );
     end component;
     component r is
         port (
-            r_x : in bit_vector(23 downto 0);
-            r_y : in bit_vector(23 downto 0)
+            r_x : in std_logic_vector(23 downto 0);
+            r_y : out std_logic_vector(23 downto 0)
         );
     end component;
     component g_prime is
         port (
-            g_prime_x : in bit_vector(52 downto 0);
-            g_prime_y : in bit_vector(52 downto 0)
+            g_prime_x : in std_logic_vector(52 downto 0);
+            g_prime_y : out std_logic_vector(52 downto 0)
         );
     end component;
 

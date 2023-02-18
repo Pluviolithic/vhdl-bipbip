@@ -1,42 +1,42 @@
 library IEEE;
-use IEEE.numeric_bit.all;
+use IEEE.std_logic_1164.all;
 
 entity g is
     port (
-        g_x : in bit_vector(52 downto 0);
-        g_y : out bit_vector(52 downto 0)
+        g_x : in std_logic_vector(52 downto 0);
+        g_y : out std_logic_vector(52 downto 0)
     );
 end g;
 
 architecture Behavioral of g is
 
-    signal g0_out : bit_vector(52 downto 0);
-    signal g1_out : bit_vector(52 downto 0);
-    signal g2_out : bit_vector(52 downto 0);
-    signal g3_out : bit_vector(52 downto 0);
+    signal g0_out : std_logic_vector(52 downto 0);
+    signal g1_out : std_logic_vector(52 downto 0);
+    signal g2_out : std_logic_vector(52 downto 0);
+    signal g3_out : std_logic_vector(52 downto 0);
 
     component chi
         port (
-            chi_x : in bit_vector(52 downto 0);
-            chi_y : out bit_vector(52 downto 0)
+            chi_x : in std_logic_vector(52 downto 0);
+            chi_y : out std_logic_vector(52 downto 0)
         );
     end component chi;
     component pi_5
         port (
-            pi_5_x : in bit_vector(52 downto 0);
-            pi_5_y : out bit_vector(52 downto 0)
+            pi_5_x : in std_logic_vector(52 downto 0);
+            pi_5_y : out std_logic_vector(52 downto 0)
         );
     end component pi_5;
     component theta_t
         port (
-            theta_t_x : in bit_vector(52 downto 0);
-            theta_t_y : out bit_vector(52 downto 0)
+            theta_t_x : in std_logic_vector(52 downto 0);
+            theta_t_y : out std_logic_vector(52 downto 0)
         );
     end component theta_t;
     component pi_4
         port (
-            pi_4_x : in bit_vector(52 downto 0);
-            pi_4_y : out bit_vector(52 downto 0)
+            pi_4_x : in std_logic_vector(52 downto 0);
+            pi_4_y : out std_logic_vector(52 downto 0)
         );
     end component pi_4;
 

@@ -1,16 +1,16 @@
 library IEEE;
-use IEEE.numeric_bit.all;
+use IEEE.std_logic_1164.all;
 
 entity s_box is
     port (
-        s_box_x : in bit_vector(5 downto 0);
-        s_box_y : out bit_vector(5 downto 0)
+        s_box_x : in std_logic_vector(5 downto 0);
+        s_box_y : out std_logic_vector(5 downto 0)
     );
 end s_box;
 
 -- change this to operate from memory
 architecture lut of s_box is
-    signal lut_out : bit_vector(5 downto 0);
+    signal lut_out : std_logic_vector(5 downto 0);
 begin
     process (s_box_x) is
     begin

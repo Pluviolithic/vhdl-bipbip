@@ -1,15 +1,15 @@
 library IEEE;
-use IEEE.numeric_bit.all;
+use IEEE.std_logic_1164.all;
 
 entity e_0 is
     port (
-        e_0_x : in bit_vector(52 downto 0);
-        e_1_y : out bit_vector(23 downto 0)
+        e_0_x : in std_logic_vector(52 downto 0);
+        e_0_y : out std_logic_vector(23 downto 0)
     );
 end e_0;
 
 architecture Behavioral of e_0 is
-    signal e0_out : bit_vector(23 downto 0);
+    signal e0_out : std_logic_vector(23 downto 0);
 begin
     e0_out(0) <= e_0_x(0);
     e0_out(1) <= e_0_x(2);
@@ -35,5 +35,5 @@ begin
     e0_out(21) <= e_0_x(42);
     e0_out(22) <= e_0_x(44);
     e0_out(23) <= e_0_x(46);
-    e_1_y <= e0_out;
+    e_0_y <= e0_out;
 end Behavioral;

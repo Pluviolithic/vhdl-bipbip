@@ -1,15 +1,15 @@
 library IEEE;
-use IEEE.numeric_bit.all;
+use IEEE.std_logic_1164.all;
 
 entity pi_2 is
     port (
-        pi_2_x : in bit_vector(23 downto 0);
-        pi_2_y : out bit_vector(23 downto 0)
+        pi_2_x : in std_logic_vector(23 downto 0);
+        pi_2_y : out std_logic_vector(23 downto 0)
     );
 end pi_2;
 
 architecture Behavioral of pi_2 is
-    signal pi2_out : bit_vector(23 downto 0);
+    signal pi2_out : std_logic_vector(23 downto 0);
 begin
     pi2_out(0)  <= pi_2_x(0);
     pi2_out(1)  <= pi_2_x(1);

@@ -1,15 +1,15 @@
 library IEEE;
-use IEEE.numeric_bit.all;
+use IEEE.std_logic_1164.all;
 
 entity theta_d is
     port (
-        theta_d_x : in bit_vector(23 downto 0);
-        theta_d_y : out bit_vector(23 downto 0)
+        theta_d_x : in std_logic_vector(23 downto 0);
+        theta_d_y : out std_logic_vector(23 downto 0)
     );
 end theta_d;
 
 architecture Behavioral of theta_d is
-    signal theta_d_out : bit_vector(23 downto 0);
+    signal theta_d_out : std_logic_vector(23 downto 0);
 begin
     theta_d_out(0) <= theta_d_x(0) xor theta_d_x(2) xor theta_d_x(12);
     theta_d_out(1) <= theta_d_x(1) xor theta_d_x(3) xor theta_d_x(13);

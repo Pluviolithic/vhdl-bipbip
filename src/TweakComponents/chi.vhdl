@@ -1,15 +1,15 @@
 library IEEE;
-use IEEE.numeric_bit.all;
+use IEEE.std_logic_1164.all;
 
 entity chi is
     port (
-        chi_x : in bit_vector(52 downto 0);
-        chi_y : out bit_vector(52 downto 0)
+        chi_x : in std_logic_vector(52 downto 0);
+        chi_y : out std_logic_vector(52 downto 0)
     );
 end chi;
 
 architecture Behavioral of chi is
-    signal chi_out : bit_vector(52 downto 0);
+    signal chi_out : std_logic_vector(52 downto 0);
 begin
     -- simpy do not x(i) instead
     chi_out(0) <= chi_x(0) xor ((chi_x(1) xor '1') and chi_x(2));

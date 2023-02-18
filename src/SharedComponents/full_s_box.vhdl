@@ -1,19 +1,19 @@
 library IEEE;
-use IEEE.numeric_bit.all;
+use IEEE.std_logic_1164.all;
 
 entity full_s_box is
     port (
-        full_s_box_x : in bit_vector(23 downto 0);
-        full_s_box_y : out bit_vector(23 downto 0)
+        full_s_box_x : in std_logic_vector(23 downto 0);
+        full_s_box_y : out std_logic_vector(23 downto 0)
     );
 end full_s_box;
 
 architecture Behavioral of full_s_box is
-    signal full_s_box_out : bit_vector(23 downto 0);
+    signal full_s_box_out : std_logic_vector(23 downto 0);
     component s_box
         port (
-            ix : in bit_vector(5 downto 0);
-            iy : out bit_vector(5 downto 0)
+            s_box_x : in std_logic_vector(5 downto 0);
+            s_box_y : out std_logic_vector(5 downto 0)
         );
     end component s_box;
 begin
