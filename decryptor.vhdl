@@ -21,10 +21,40 @@ architecture Behavioral of decryptor is
 
     signal tweak : std_logic_vector(39 downto 0);
     signal tweak_star : std_logic_vector(52 downto 0);
-    signal tweak_value : std_logic_vector(52 downto 0);
 
-    signal data_round_key : std_logic_vector(23 downto 0);
-    signal r_value : std_logic_vector(23 downto 0);
+    signal tweak_value0 : std_logic_vector(52 downto 0);
+    signal tweak_value1 : std_logic_vector(52 downto 0);
+    signal tweak_value2 : std_logic_vector(52 downto 0);
+    signal tweak_value3 : std_logic_vector(52 downto 0);
+    signal tweak_value4 : std_logic_vector(52 downto 0);
+    signal tweak_value5 : std_logic_vector(52 downto 0);
+    signal tweak_value6 : std_logic_vector(52 downto 0);
+    signal tweak_value7 : std_logic_vector(52 downto 0);
+    signal tweak_value8 : std_logic_vector(52 downto 0);
+
+    signal data_round_key0 : std_logic_vector(23 downto 0);
+    signal data_round_key1 : std_logic_vector(23 downto 0);
+    signal data_round_key2 : std_logic_vector(23 downto 0);
+    signal data_round_key3 : std_logic_vector(23 downto 0);
+    signal data_round_key4 : std_logic_vector(23 downto 0);
+    signal data_round_key5 : std_logic_vector(23 downto 0);
+    signal data_round_key6 : std_logic_vector(23 downto 0);
+    signal data_round_key7 : std_logic_vector(23 downto 0);
+    signal data_round_key8 : std_logic_vector(23 downto 0);
+    signal data_round_key9 : std_logic_vector(23 downto 0);
+    signal data_round_key10 : std_logic_vector(23 downto 0);
+
+    signal r_value0 : std_logic_vector(23 downto 0);
+    signal r_value1 : std_logic_vector(23 downto 0);
+    signal r_value2 : std_logic_vector(23 downto 0);
+    signal r_value3 : std_logic_vector(23 downto 0);
+    signal r_value4 : std_logic_vector(23 downto 0);
+    signal r_value5 : std_logic_vector(23 downto 0);
+    signal r_value6 : std_logic_vector(23 downto 0);
+    signal r_value7 : std_logic_vector(23 downto 0);
+    signal r_value8 : std_logic_vector(23 downto 0);
+    signal r_value9 : std_logic_vector(23 downto 0);
+    signal r_value10 : std_logic_vector(23 downto 0);
 
     signal ciphertext : std_logic_vector(23 downto 0);
 
@@ -106,54 +136,54 @@ begin
 
     ciphertext <= encrypted_address(57 downto 34);
 
-    tweak_value_1 : chi port map(tweak_star xor trk1, tweak_value);
-    r_value_1 : r_prime port map(ciphertext xor k0, r_value);
+    decryptor0 : chi port map(tweak_star xor trk1, tweak_value0);
+    decryptor1 : r_prime port map(ciphertext xor k0, r_value0);
 
-    data_round_key_0 : e_0 port map(tweak_value, data_round_key);
-    r_value_2 : r_prime port map(r_value xor data_round_key, r_value);
+    decryptor2 : e_0 port map(tweak_value0, data_round_key0);
+    decryptor3 : r_prime port map(r_value0 xor data_round_key0, r_value1);
 
-    data_round_key_1 : e_1 port map(tweak_value, data_round_key);
-    r_value_3 : r_prime port map(r_value xor data_round_key, r_value);
+    decryptor4 : e_1 port map(tweak_value0, data_round_key1);
+    decryptor5 : r_prime port map(r_value2 xor data_round_key1, r_value1);
 
-    tweak_value_2 : g port map(tweak_value xor trk2, tweak_value);
-    data_round_key_2 : e_0 port map(tweak_value, data_round_key);
+    decryptor6 : g port map(tweak_value0 xor trk2, tweak_value1);
+    decryptor7 : e_0 port map(tweak_value1, data_round_key2);
     
-    r_value_4 : r port map(r_value xor data_round_key, r_value);
-    data_round_key_3 : e_1 port map(tweak_value, data_round_key);
+    decryptor8 : r port map(r_value2 xor data_round_key2, r_value3);
+    decryptor9 : e_1 port map(tweak_value1, data_round_key3);
 
-    r_value_5 : r port map(r_value xor data_round_key, r_value); 
+    decryptor10 : r port map(r_value3 xor data_round_key3, r_value4); 
         
-    tweak_value_3 : g port map(tweak_value xor trk3, tweak_value);
-    tweak_value_4 : g_prime port map(tweak_value, tweak_value);
+    decryptor11 : g port map(tweak_value1 xor trk3, tweak_value2);
+    decryptor12 : g_prime port map(tweak_value2, tweak_value3);
     
-    data_round_key_4 : e_0 port map(tweak_value, data_round_key);
-    r_value_6 : r port map(r_value xor data_round_key, r_value);
+    decryptor13 : e_0 port map(tweak_value3, data_round_key4);
+    decryptor14 : r port map(r_value4 xor data_round_key4, r_value5);
     
-    tweak_value_5 : g port map(tweak_value xor trk4, tweak_value);
-    data_round_key_5 : e_0 port map(tweak_value, data_round_key);
+    decryptor15 : g port map(tweak_value3 xor trk4, tweak_value4);
+    decryptor16 : e_0 port map(tweak_value4, data_round_key5);
 
-    r_value_7 : r port map(r_value xor data_round_key, r_value);
+    decryptor17 : r port map(r_value5 xor data_round_key5, r_value6);
 
-    tweak_value_6 : g_prime port map(tweak_value, tweak_value);
-    data_round_key_6 : e_0 port map(tweak_value, data_round_key);
+    decryptor18 : g_prime port map(tweak_value4, tweak_value5);
+    decryptor19 : e_0 port map(tweak_value5, data_round_key6);
 
-    r_value_8 : r port map(r_value xor data_round_key, r_value);
-    tweak_value_7 : g port map(tweak_value xor trk5, tweak_value);
+    decryptor20 : r port map(r_value6 xor data_round_key6, r_value7);
+    decryptor21 : g port map(tweak_value5 xor trk5, tweak_value6);
 
-    data_round_key_7 : e_0 port map(tweak_value, data_round_key);
-    r_value_9 : r_prime port map(r_value xor data_round_key, r_value);
+    decryptor22 : e_0 port map(tweak_value6, data_round_key7);
+    decryptor23 : r_prime port map(r_value7 xor data_round_key7, r_value8);
 
-    tweak_value_8 : g_prime port map(tweak_value, tweak_value);
-    data_round_key_8 : e_0 port map(tweak_value, data_round_key);
+    decryptor24 : g_prime port map(tweak_value6, tweak_value7);
+    decryptor25 : e_0 port map(tweak_value7, data_round_key8);
 
-    r_value_10 : r_prime port map(r_value xor data_round_key, r_value);
+    decryptor26 : r_prime port map(r_value8 xor data_round_key8, r_value9);
 
-    tweak_value_9 : g port map(tweak_value xor trk6, tweak_value);
-    data_round_key_9 : e_0 port map(tweak_value, data_round_key);
+    decryptor27 : g port map(tweak_value7 xor trk6, tweak_value8);
+    decryptor28 : e_0 port map(tweak_value8, data_round_key9);
     
-    r_value_11 : r_prime port map(r_value xor data_round_key, r_value);
-    data_round_key_10 : e_1 port map(tweak_value, data_round_key);
+    decryptor29 : r_prime port map(r_value9 xor data_round_key9, r_value10);
+    decryptor30 : e_1 port map(tweak_value8, data_round_key10);
 
-    decrypted_address <= tweak(39 downto 34) & (r_value xor data_round_key) & tweak(33 downto 0);
+    decrypted_address <= tweak(39 downto 34) & (r_value10 xor data_round_key10) & tweak(33 downto 0);
     
 end Behavioral;
