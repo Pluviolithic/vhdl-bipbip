@@ -11,16 +11,16 @@ end pi_4;
 architecture Behavioral of pi_4 is
     signal pi4_out : std_logic_vector(52 downto 0);
 begin
-    pi4_out(0) <= pi_4_x(0);
-    pi4_out(1) <= pi_4_x(13);
-    pi4_out(2) <= pi_4_x(26);
-    pi4_out(3) <= pi_4_x(39);
-    pi4_out(4) <= pi_4_x(52);
-    pi4_out(5) <= pi_4_x(12);
-    pi4_out(6) <= pi_4_x(25);
-    pi4_out(7) <= pi_4_x(38);
-    pi4_out(8) <= pi_4_x(51);
-    pi4_out(9) <= pi_4_x(11);
+    pi4_out(0)  <= pi_4_x(0);
+    pi4_out(1)  <= pi_4_x(13);
+    pi4_out(2)  <= pi_4_x(26);
+    pi4_out(3)  <= pi_4_x(39);
+    pi4_out(4)  <= pi_4_x(52);
+    pi4_out(5)  <= pi_4_x(12);
+    pi4_out(6)  <= pi_4_x(25);
+    pi4_out(7)  <= pi_4_x(38);
+    pi4_out(8)  <= pi_4_x(51);
+    pi4_out(9)  <= pi_4_x(11);
     pi4_out(10) <= pi_4_x(24);
     pi4_out(11) <= pi_4_x(37);
     pi4_out(12) <= pi_4_x(50);
@@ -64,5 +64,5 @@ begin
     pi4_out(50) <= pi_4_x(14);
     pi4_out(51) <= pi_4_x(27);
     pi4_out(52) <= pi_4_x(40);
-    pi_4_y <= pi4_out;
+    pi_4_y      <= pi4_out;
 end Behavioral;

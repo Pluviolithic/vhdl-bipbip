@@ -35,5 +35,5 @@ begin
     pi1_out(21) <= pi_1_x(10);
     pi1_out(22) <= pi_1_x(11);
     pi1_out(23) <= pi_1_x(5);
-    pi_1_y <= pi1_out;
+    pi_1_y      <= pi1_out;
 end Behavioral;

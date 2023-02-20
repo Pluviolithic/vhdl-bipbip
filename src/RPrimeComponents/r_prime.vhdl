@@ -10,7 +10,7 @@ end r_prime;
 
 architecture Behavioral of r_prime is
 
-    signal r_prime_out : std_logic_vector(23 downto 0);
+    signal r_prime_out  : std_logic_vector(23 downto 0);
     signal r_prime0_out : std_logic_vector(23 downto 0);
 
     component full_s_box

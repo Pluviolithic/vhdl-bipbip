@@ -11,10 +11,10 @@ end g_prime;
 architecture Behavioral of g_prime is
 
     signal g_prime_out : std_logic_vector(52 downto 0);
-    signal g0_out : std_logic_vector(52 downto 0);
-    signal g1_out : std_logic_vector(52 downto 0);
-    signal g2_out : std_logic_vector(52 downto 0);
-    signal g3_out : std_logic_vector(52 downto 0);
+    signal g0_out      : std_logic_vector(52 downto 0);
+    signal g1_out      : std_logic_vector(52 downto 0);
+    signal g2_out      : std_logic_vector(52 downto 0);
+    signal g3_out      : std_logic_vector(52 downto 0);
 
     component chi
         port (

@@ -11,16 +11,16 @@ end pi_5;
 architecture Behavioral of pi_5 is
     signal pi5_out : std_logic_vector(52 downto 0);
 begin
-    pi5_out(0) <= pi_5_x(0);
-    pi5_out(1) <= pi_5_x(11);
-    pi5_out(2) <= pi_5_x(22);
-    pi5_out(3) <= pi_5_x(33);
-    pi5_out(4) <= pi_5_x(44);
-    pi5_out(5) <= pi_5_x(2);
-    pi5_out(6) <= pi_5_x(13);
-    pi5_out(7) <= pi_5_x(24);
-    pi5_out(8) <= pi_5_x(35);
-    pi5_out(9) <= pi_5_x(46);
+    pi5_out(0)  <= pi_5_x(0);
+    pi5_out(1)  <= pi_5_x(11);
+    pi5_out(2)  <= pi_5_x(22);
+    pi5_out(3)  <= pi_5_x(33);
+    pi5_out(4)  <= pi_5_x(44);
+    pi5_out(5)  <= pi_5_x(2);
+    pi5_out(6)  <= pi_5_x(13);
+    pi5_out(7)  <= pi_5_x(24);
+    pi5_out(8)  <= pi_5_x(35);
+    pi5_out(9)  <= pi_5_x(46);
     pi5_out(10) <= pi_5_x(4);
     pi5_out(11) <= pi_5_x(15);
     pi5_out(12) <= pi_5_x(26);
@@ -64,5 +64,5 @@ begin
     pi5_out(50) <= pi_5_x(20);
     pi5_out(51) <= pi_5_x(31);
     pi5_out(52) <= pi_5_x(42);
-    pi_5_y <= pi5_out;
+    pi_5_y      <= pi5_out;
 end Behavioral;

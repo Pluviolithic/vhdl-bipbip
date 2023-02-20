@@ -35,5 +35,5 @@ begin
     pi2_out(21) <= pi_2_x(19);
     pi2_out(22) <= pi_2_x(22);
     pi2_out(23) <= pi_2_x(23);
-    pi_2_y <= pi2_out;
+    pi_2_y      <= pi2_out;
 end Behavioral;
