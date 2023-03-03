@@ -79,6 +79,7 @@ begin
             when "111101" => lut_out <= "101111";
             when "111110" => lut_out <= "010110";
             when "111111" => lut_out <= "100010";
+            when others   => lut_out   <= "000000";
         end case;
     end process;
     s_box_y <= lut_out;
