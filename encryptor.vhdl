@@ -83,10 +83,10 @@ architecture Behavioral of encryptor is
             chi_y : out std_logic_vector(52 downto 0)
         );
     end component;
-    component r_prime is
+    component r_prime_inverse is
         port (
-            r_prime_x : in std_logic_vector(23 downto 0);
-            r_prime_y : out std_logic_vector(23 downto 0)
+            r_prime_inverse_x : in std_logic_vector(23 downto 0);
+            r_prime_inverse_y : out std_logic_vector(23 downto 0)
         );
     end component;
     component e_0 is
@@ -107,10 +107,10 @@ architecture Behavioral of encryptor is
             g_y : out std_logic_vector(52 downto 0)
         );
     end component;
-    component r is
+    component r_inverse is
         port (
-            r_x : in std_logic_vector(23 downto 0);
-            r_y : out std_logic_vector(23 downto 0)
+            r_inverse_x : in std_logic_vector(23 downto 0);
+            r_inverse_y : out std_logic_vector(23 downto 0)
         );
     end component;
     component g_prime is
@@ -188,37 +188,37 @@ begin
     encryptor19 : e_1 port map(tweak_value8, data_round_key10);
 
     xor_input6 <= plaintext xor data_round_key10;
-    encryptor20 : r_prime port map(xor_input6, r_value0);
+    encryptor20 : r_prime_inverse port map(xor_input6, r_value0);
 
     xor_input7 <= r_value0 xor data_round_key9;
-    encryptor21 : r_prime port map(xor_input7, r_value1);
+    encryptor21 : r_prime_inverse port map(xor_input7, r_value1);
 
     xor_input8 <= r_value1 xor data_round_key8;
-    encryptor22 : r_prime port map(xor_input8, r_value2);
+    encryptor22 : r_prime_inverse port map(xor_input8, r_value2);
 
     xor_input9 <= r_value2 xor data_round_key7;
-    encryptor23 : r port map(xor_input9, r_value3);
+    encryptor23 : r_inverse port map(xor_input9, r_value3);
 
     xor_input10 <= r_value3 xor data_round_key6;
-    encryptor24 : r port map(xor_input10, r_value4);
+    encryptor24 : r_inverse port map(xor_input10, r_value4);
 
     xor_input11 <= r_value4 xor data_round_key5;
-    encryptor25 : r port map(xor_input11, r_value5);
+    encryptor25 : r_inverse port map(xor_input11, r_value5);
 
     xor_input12 <= r_value5 xor data_round_key4;
-    encryptor26 : r port map(xor_input12, r_value6);
+    encryptor26 : r_inverse port map(xor_input12, r_value6);
 
     xor_input13 <= r_value6 xor data_round_key3;
-    encryptor27 : r port map(xor_input13, r_value7);
+    encryptor27 : r_inverse port map(xor_input13, r_value7);
 
     xor_input14 <= r_value7 xor data_round_key2;
-    encryptor28 : r_prime port map(xor_input14, r_value8);
+    encryptor28 : r_prime_inverse port map(xor_input14, r_value8);
 
     xor_input15 <= r_value8 xor data_round_key1;
-    encryptor29 : r_prime port map(xor_input15, r_value9);
+    encryptor29 : r_prime_inverse port map(xor_input15, r_value9);
 
     xor_input16 <= r_value9 xor data_round_key0;
-    encryptor30 : r_prime port map(xor_input16, r_value10);
+    encryptor30 : r_prime_inverse port map(xor_input16, r_value10);
 
     encrypted_address <= tweak(39 downto 34) & (r_value10 xor k0) & tweak(33 downto 0);
 
