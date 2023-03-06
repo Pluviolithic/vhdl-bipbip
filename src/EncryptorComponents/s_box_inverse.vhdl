@@ -1,85 +1,28 @@
 library IEEE;
+use IEEE.numeric_std.all;
 use IEEE.std_logic_1164.all;
 
 entity s_box_inverse is
-    port (
-        s_box_x : in std_logic_vector(5 downto 0);
-        s_box_y : out std_logic_vector(5 downto 0)
-    );
+  port (
+    s_box_x : in std_logic_vector(5 downto 0);
+    s_box_y : out std_logic_vector(5 downto 0)
+  );
 end s_box_inverse;
 
 architecture lut of s_box_inverse is
-    signal lut_out : std_logic_vector(5 downto 0);
+  signal lut_out : std_logic_vector(5 downto 0);
+  type lut_array_type is array (0 to 63) of std_logic_vector(5 downto 0);
+  constant lut_array : lut_array_type := (
+    "000000", "000001", "000010", "000011", "000100", "000101", "000110", "000111",
+    "001000", "001001", "001010", "001011", "001100", "001101", "001110", "001111",
+    "010000", "010001", "010010", "010011", "010100", "010101", "010110", "010111",
+    "011000", "011001", "011010", "011011", "011100", "011101", "011110", "011111",
+    "100000", "100001", "100010", "100011", "100100", "100101", "100110", "100111",
+    "101000", "101001", "101010", "101011", "101100", "101101", "101110", "101111",
+    "110000", "110001", "110010", "110011", "110100", "110101", "110110", "110111",
+    "111000", "111001", "111010", "111011", "111100", "111101", "111110", "111111"
+  );
 begin
-    process (s_box_x) is
-    begin
-        case s_box_x is
-            when "000000" => lut_out <= "000000";
-            when "000001" => lut_out <= "000001";
-            when "000010" => lut_out <= "000010";
-            when "000011" => lut_out <= "000011";
-            when "000100" => lut_out <= "000100";
-            when "000110" => lut_out <= "000101";
-            when "111110" => lut_out <= "000110";
-            when "111100" => lut_out <= "000111";
-            when "001000" => lut_out <= "001000";
-            when "010001" => lut_out <= "001001";
-            when "001110" => lut_out <= "001010";
-            when "010111" => lut_out <= "001011";
-            when "101011" => lut_out <= "001100";
-            when "110011" => lut_out <= "001101";
-            when "110101" => lut_out <= "001110";
-            when "101101" => lut_out <= "001111";
-            when "011001" => lut_out <= "010000";
-            when "011100" => lut_out <= "010001";
-            when "001001" => lut_out <= "010010";
-            when "001100" => lut_out <= "010011";
-            when "010101" => lut_out <= "010100";
-            when "010011" => lut_out <= "010101";
-            when "111101" => lut_out <= "010110";
-            when "111011" => lut_out <= "010111";
-            when "110001" => lut_out <= "011000";
-            when "101100" => lut_out <= "011001";
-            when "100101" => lut_out <= "011010";
-            when "111000" => lut_out <= "011011";
-            when "111010" => lut_out <= "011100";
-            when "100110" => lut_out <= "011101";
-            when "110110" => lut_out <= "011110";
-            when "101010" => lut_out <= "011111";
-            when "110100" => lut_out <= "100000";
-            when "011101" => lut_out <= "100001";
-            when "110111" => lut_out <= "100010";
-            when "011110" => lut_out <= "100011";
-            when "110000" => lut_out <= "100100";
-            when "011010" => lut_out <= "100101";
-            when "001011" => lut_out <= "100110";
-            when "100001" => lut_out <= "100111";
-            when "101110" => lut_out <= "101000";
-            when "011111" => lut_out <= "101001";
-            when "101001" => lut_out <= "101010";
-            when "011000" => lut_out <= "101011";
-            when "001111" => lut_out <= "101100";
-            when "111111" => lut_out <= "101101";
-            when "010000" => lut_out <= "101110";
-            when "100000" => lut_out <= "101111";
-            when "101000" => lut_out <= "110000";
-            when "000101" => lut_out <= "110001";
-            when "111001" => lut_out <= "110010";
-            when "010100" => lut_out <= "110011";
-            when "100100" => lut_out <= "110100";
-            when "001010" => lut_out <= "110101";
-            when "001101" => lut_out <= "110110";
-            when "100011" => lut_out <= "110111";
-            when "010010" => lut_out <= "111000";
-            when "100111" => lut_out <= "111001";
-            when "000111" => lut_out <= "111010";
-            when "110010" => lut_out <= "111011";
-            when "011011" => lut_out <= "111100";
-            when "101111" => lut_out <= "111101";
-            when "010110" => lut_out <= "111110";
-            when "100010" => lut_out <= "111111";
-            when others   => lut_out   <= "000000";
-        end case;
-    end process;
-    s_box_y <= lut_out;
+  lut_out <= lut_array(to_integer(unsigned(s_box_x)));
+  s_box_y <= lut_out;
 end lut;
