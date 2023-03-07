@@ -12,8 +12,8 @@ architecture Behavioral of full_s_box_inverse is
   signal full_s_box_inverse_out : std_logic_vector(23 downto 0);
   component s_box_inverse
     port (
-      s_box_x : in std_logic_vector(5 downto 0);
-      s_box_y : out std_logic_vector(5 downto 0)
+      s_box_inverse_x : in std_logic_vector(5 downto 0);
+      s_box_inverse_y : out std_logic_vector(5 downto 0)
     );
   end component s_box_inverse;
 begin
