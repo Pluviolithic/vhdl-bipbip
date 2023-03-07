@@ -121,32 +121,32 @@ architecture Behavioral of encryptor is
   end component;
 begin
   k0_generate_for : for i in 1 to 24 generate
-    k0(i - 1) <= key((i ** i) mod 256);
+    k0(i - 1) <= key((3 ** i) mod 256);
   end generate k0_generate_for;
 
   -- trk = tweak round key
   trk1_generate_for : for i in 0 to 52 generate
-    trk1(i) <= key((53 + i) mod 256);
+    trk1(52 - i) <= key((53 + i) mod 256);
   end generate trk1_generate_for;
 
   trk2_generate_for : for i in 0 to 52 generate
-    trk2(i) <= key((53 * 2 + i) mod 256);
+    trk2(52 - i) <= key((53 * 2 + i) mod 256);
   end generate trk2_generate_for;
 
   trk3_generate_for : for i in 0 to 52 generate
-    trk3(i) <= key((53 * 3 + i) mod 256);
+    trk3(52 - i) <= key((53 * 3 + i) mod 256);
   end generate trk3_generate_for;
 
   trk4_generate_for : for i in 0 to 52 generate
-    trk4(i) <= key((53 * 4 + i) mod 256);
+    trk4(52 - i) <= key((53 * 4 + i) mod 256);
   end generate trk4_generate_for;
 
   trk5_generate_for : for i in 0 to 52 generate
-    trk5(i) <= key((53 * 5 + i) mod 256);
+    trk5(52 - i) <= key((53 * 5 + i) mod 256);
   end generate trk5_generate_for;
 
   trk6_generate_for : for i in 0 to 52 generate
-    trk6(i) <= key((53 * 6 + i) mod 256);
+    trk6(52 - i) <= key((53 * 6 + i) mod 256);
   end generate trk6_generate_for;
 
   tweak <= plaintext_address(63 downto 58) & plaintext_address(33 downto 0);
