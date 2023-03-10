@@ -25,8 +25,8 @@ begin
   pi2_inverse_out(11) <= pi_2_inverse_x(11);
   pi2_inverse_out(12) <= pi_2_inverse_x(13);
   pi2_inverse_out(13) <= pi_2_inverse_x(14);
-  pi2_inverse_out(14) <= pi_2_inverse_x(18);
-  pi2_inverse_out(15) <= pi_2_inverse_x(19);
+  pi2_inverse_out(14) <= pi_2_inverse_x(19);
+  pi2_inverse_out(15) <= pi_2_inverse_x(18);
   pi2_inverse_out(16) <= pi_2_inverse_x(12);
   pi2_inverse_out(17) <= pi_2_inverse_x(15);
   pi2_inverse_out(18) <= pi_2_inverse_x(20);
